@@ -1,0 +1,23 @@
+.typing {
+  position: relative;
+}
+
+.typing::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 4px;
+  height: 100%;
+  animation: cursor 0.3s infinite alternate ease-in-out;
+}
+
+@keyframes cursor {
+  from {
+    border-right: 2px solid transparent;
+  }
+  to {
+    border-right: 2px solid #6d6d6d;
+  }
+}
