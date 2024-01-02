@@ -34,9 +34,11 @@ export default function Page() {
           <h3 className="text-2xl mb-8 text-gray-500 dark:text-gray-200">
             본 튜토리얼은 NextJS의 공식 홈페이지를 참고하여 만들었습니다.
           </h3>
-          <button className="bg-gray-800 text-white font-bold rounded-full mt-4 py-4 px-8 shadow-lg uppercase tracking-wider">
-            시작하기
-          </button>
+          <Link href="/tutorials/getting-started">
+            <button className="bg-gray-800 text-white font-bold rounded-full mt-4 py-4 px-8 shadow-lg uppercase tracking-wider">
+              시작하기
+            </button>
+          </Link>
         </div>
       </section>
       <section className="container mx-auto px-6 py-20">
