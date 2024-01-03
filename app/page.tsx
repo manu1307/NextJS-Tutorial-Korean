@@ -19,7 +19,6 @@ import Card from "./components/ui/Card";
 import Footer from "./components/ui/Footer";
 import Header from "./components/ui/Header";
 import Typing from "./components/ui/Typing";
-import Button from "./components/ui/button";
 
 import Link from "next/link";
 import { contents } from "./lib/data";
