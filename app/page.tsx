@@ -22,14 +22,13 @@ import Typing from "./components/ui/Typing";
 
 import Link from "next/link";
 import { contents } from "./lib/data";
-// import { CardTitle, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
 
 export default function Page() {
   return (
     <>
       <Header />
 
-      <section className=" py-20 my-10">
+      <section className="py-20 my-10">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-5xl font-bold mb-4 text-gray-800 dark:text-white ">
             Welcome to <Typing word={"Next.js"} interval={200} />
@@ -50,7 +49,7 @@ export default function Page() {
           <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-8">
             튜토리얼 목차
           </h2>
-          <div className="items-center flex-wrap mb-20 grid grid-cols-4 grid-rows-4 gap-x-8 gap-y-16">
+          <div className="items-center flex-wrap mb-20 grid md:grid-cols-4 md:grid-rows-4 gap-x-8 gap-y-16">
             {contents.map((content) => {
               return (
                 <Card

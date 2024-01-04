@@ -5,6 +5,8 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./public/**/*.html",
+    "./node_modules/flowbite-react/lib/**/*.js",
   ],
   theme: {
     extend: {
@@ -15,7 +17,7 @@ const config: Config = {
       },
       colors: {
         vercel: {
-          100: "#000000",
+          100: "#f8f8f8",
           200: "#efefef",
           300: "#dcdcdc",
           400: "#bdbdbd",
@@ -29,6 +31,6 @@ const config: Config = {
     },
   },
 
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
 };
 export default config;
