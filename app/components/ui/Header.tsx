@@ -1,10 +1,17 @@
 import Link from "next/link";
 import React from "react";
 
-function Header() {
+type HeaderProps = {
+  fixed?: boolean;
+};
+function Header({ fixed }: HeaderProps = { fixed: true }) {
   return (
-    <div className="w-full  ">
-      <header className="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-50">
+    <div className="w-full">
+      <header
+        className={`${
+          fixed && "fixed top-0"
+        } w-full bg-white dark:bg-gray-800 shadow-md z-50`}
+      >
         <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
           <Link href="/">
             <div className="flex justify-between items-center">

@@ -27,7 +27,6 @@ export default function Page() {
   return (
     <>
       <Header />
-
       <section className="py-20 my-10">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-5xl font-bold mb-4 text-gray-800 dark:text-white ">
