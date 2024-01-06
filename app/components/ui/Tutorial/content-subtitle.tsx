@@ -15,7 +15,7 @@ function ContentSubtitle({ title, id }: ContentTitleProps) {
     >
       <a
         href={`#${id}`}
-        className={` flex items-center gap-2 ${
+        className={` flex items-center gap-2 mt-[-120px] pt-[120px] ${
           isHover && "block text-blue-400 duration-200"
         }`}
       >

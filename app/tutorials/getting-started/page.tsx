@@ -2,6 +2,7 @@ import ArticleTop from "@/app/components/ui/Tutorial/article-top";
 import CodeWithLink from "@/app/components/ui/Tutorial/code-with-link";
 import CodeWithNoLink from "@/app/components/ui/Tutorial/code-with-no-link";
 import CodeBlock from "@/app/components/ui/Tutorial/codeblock";
+import Complete from "@/app/components/ui/Tutorial/complete";
 import Content from "@/app/components/ui/Tutorial/content";
 import ContentSubtitle from "@/app/components/ui/Tutorial/content-subtitle";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
@@ -13,6 +14,7 @@ import React from "react";
 
 function Page() {
   const data = contents[0];
+  const nextData = contents[1];
   return (
     <div>
       <section className="relative mx-auto max-w-screen-lg px-4 py-4 md:py-10">
@@ -257,6 +259,16 @@ function Page() {
                 fill={true}
               />
             </div>
+            <Complete
+              completeChapter={data.chapter}
+              nextChapter={nextData.chapter}
+              nextChapterTitle={nextData.title}
+              nextChapterDescription="이제 어플리케이션에 스타일을 적용시키는 다양한 방법을 살펴보고 홈페이지에 적용해봅시다."
+              nextChapterLink={nextData.link}
+            >
+              축하드립니다! 스타터 예제를 통해서 Next.js 어플리케이션을 만들고
+              개발 서버에 실행까지 완료했습니다.
+            </Complete>
           </article>
         </div>
       </section>

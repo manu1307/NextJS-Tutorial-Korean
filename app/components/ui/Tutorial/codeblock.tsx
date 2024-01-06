@@ -5,7 +5,7 @@ import { googlecode } from "react-code-blocks";
 import { CodeBlock as CodeBlockFromLibrary } from "react-code-blocks";
 
 import Save from "../../icons/Save";
-import Check from "../../icons/Check";
+import Check from "../../icons/Check_black";
 
 type CodeBlockProps = {
   route: string;

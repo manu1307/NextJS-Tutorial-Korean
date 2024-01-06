@@ -52,7 +52,7 @@ function NavBar({ chapter, title }: NavBarProps) {
           </div>
           <div className="ml-auto lg:flex flex-col text-right ">
             <p className="text-vercel-700">
-              {Math.round(((chapter - 1) / 16) * 100)}%
+              {Math.round((chapter / 16) * 100)}%
             </p>
             <p className="text-vercel-500">{chapter}/16 chapters</p>
           </div>
@@ -65,7 +65,7 @@ function NavBar({ chapter, title }: NavBarProps) {
 
         <div className="w-[1px] h-8 bg-vercel-400 rounded-full mr-3 ml-4"></div>
         <div className="hidden md:block">
-          <Tooltip content="맨 위로">
+          <Tooltip content="맨 위로" placement="bottom" className="w-20">
             <button
               className="hover:bg-vercel-300 p-2 rounded-full"
               onClick={() => window.scrollTo(0, 0)}

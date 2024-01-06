@@ -8,14 +8,14 @@ function ContentTitle({ title, id }: ContentTitleProps) {
   const [isHover, setIsHover] = useState<boolean>(false);
   return (
     <h2
-      id={id}
       className="text-3xl font-semibold mt-12 mb-6 pt-10 border-t-2 border-gray-200 dark:border-gray-800"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
       <a
+        id={id}
         href={`#${id}`}
-        className={` flex items-center gap-2 ${
+        className={` flex items-center gap-2 mt-[-120px] pt-[120px] ${
           isHover && "block text-blue-400 duration-200"
         }`}
       >

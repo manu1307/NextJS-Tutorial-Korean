@@ -6,7 +6,7 @@ type ProgressBarCircleProps = {
 function ProgressBarCircle({ chapter }: ProgressBarCircleProps) {
   const radius = 16;
   const circumference = 2 * Math.PI * radius;
-  const dashoffset = circumference * (1 - (chapter - 1) / 16);
+  const dashoffset = circumference * (1 - chapter / 16);
   return (
     <svg className="w-[40px] h-[40px] transform -rotate-90">
       <circle
