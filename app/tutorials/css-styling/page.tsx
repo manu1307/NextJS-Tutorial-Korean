@@ -3,6 +3,7 @@ import CodeWithLink from "@/app/components/ui/Tutorial/code-with-link";
 import CodeWithNoLink from "@/app/components/ui/Tutorial/code-with-no-link";
 import CodeBlock from "@/app/components/ui/Tutorial/codeblock";
 import Content from "@/app/components/ui/Tutorial/content";
+import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
 import NavBar from "@/app/components/ui/Tutorial/nav-bar";
 import { contents } from "@/app/lib/data";
@@ -10,6 +11,18 @@ import Image from "next/image";
 
 function Page() {
   const data = contents[1];
+  const goals: Goal[] = [
+    {
+      type: "docs",
+      content: "어플리케이션에 글로벌 CSS 파일을 어떻게 적용할 것인지",
+    },
+    { type: "write", content: "스타일링의 2가지 방법 : Tailwind와 CSS 모듈" },
+    {
+      type: "utils",
+      content:
+        "clsx 유틸리티 패키지를 사용하여 조건부로 클래스 이름을 추가하는 방법",
+    },
+  ];
   return (
     <div>
       <section className="relative mx-auto max-w-screen-lg px-4 py-4 md:py-10">
@@ -17,10 +30,12 @@ function Page() {
           <NavBar chapter={data.chapter} title={data.title} />
           <article className="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6 text-left">
             <ArticleTop data={data} />
+
             <Content>
               지금 우리의 페이지에는 아무런 스타일이 없습니다. 이제부터 Next.js
               어플리케이션을 스타일할 수 있는 다양한 방법을 살펴보죠.
             </Content>
+            <ContentGoal goals={goals} />
             <ContentTitle title="글로벌 스타일" id="global-styles" />
             <Content>
               <CodeWithNoLink>/app/ui</CodeWithNoLink>폴더를 살펴보면,{" "}
