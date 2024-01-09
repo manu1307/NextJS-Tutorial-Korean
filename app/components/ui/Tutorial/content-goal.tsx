@@ -1,6 +1,6 @@
 import { Content } from "next/font/google";
 import React from "react";
-import Docs from "../../icons/goals/docs";
+import Docs from "../../icons/goals/Docs";
 import Write from "../../icons/goals/Write";
 import Utils from "../../icons/goals/Utils";
 
@@ -16,6 +16,7 @@ const Icons = (type: string) => {
   switch (type) {
     case "docs":
       return <Docs />;
+      ``;
     case "write":
       return <Write />;
     case "utils":

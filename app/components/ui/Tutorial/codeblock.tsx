@@ -8,7 +8,7 @@ import Save from "../../icons/Save";
 import Check from "../../icons/Check_black";
 
 type CodeBlockProps = {
-  route: string;
+  route?: string;
   code: string;
   language: string;
   showLineNumbers?: boolean;
@@ -26,7 +26,7 @@ function CodeBlock({
   return (
     <div className="relative border-[1px] border-vercel-200 rounded-lg my-4 leading-4">
       <div className="absolute top-0 text-vercel-600 z-10 bg-vercel-200 w-full py-2 pl-3 pr-5 flex justify-between items-center">
-        {route}
+        {route ? route : <div></div>}
         <div className="relative">
           <button
             className="hover:bg-vercel-300 p-2 w-8 h-8 rounded-lg flex items-center justify-center "
