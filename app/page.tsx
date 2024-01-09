@@ -32,7 +32,7 @@ export default function Page() {
           <h2 className="text-5xl font-bold mb-4 text-gray-800 dark:text-white ">
             Welcome to <Typing word={"Next.js"} interval={200} />
           </h2>
-          <h3 className="text-2xl mb-8 text-gray-500 dark:text-gray-200">
+          <h3 className="text-2xl mb-8 text-gray-500 dark:text-gray-200 fadeIn">
             본 튜토리얼은 NextJS의 공식 홈페이지를 참고하여 만들었습니다.
           </h3>
 

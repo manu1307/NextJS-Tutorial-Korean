@@ -8,3 +8,17 @@ html {
 .shadow-sm {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
+
+.fadeIn {
+  animation: fadeIn 0.7s ease-in-out 1;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(10px);
+    font-size: 1.3rem;
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
