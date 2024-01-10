@@ -11,7 +11,7 @@ function Check() {
     >
       <path
         d="M4 12.6111L8.92308 17.5L20 6.5"
-        stroke="#000000"
+        stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

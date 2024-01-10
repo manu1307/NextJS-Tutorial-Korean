@@ -7,6 +7,7 @@ import Content from "@/app/components/ui/Tutorial/content";
 import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
 import NavBar from "@/app/components/ui/Tutorial/nav-bar";
+import ContentQuiz from "@/app/components/ui/Tutorial/quiz";
 import { contents } from "@/app/lib/data";
 import Image from "next/image";
 
@@ -181,12 +182,23 @@ export default function Page() {
 />`}
               language="tsx"
             />
+            <ContentQuiz
+              answers={[
+                "노란색 별",
+                "파란색 삼각형",
+                "검정색 삼각형",
+                "빨간색 원",
+              ]}
+              correctAnswer="검정색 삼각형"
+              explanation="border 클래스는 삼각형을 만드는 데 사용됩니다."
+              hint="코드상에서 올바르게 삼각형을 추가했는지 확인해보세요!"
+              question="위의 코드를 입력하면 어떤 모양이 보이나요?"
+            />
+
             <Content>
               만약 전통적인 CSS나 JSX와 스타일을 구별해서 사용하고 싶다면 - CSS
               모듈은 아주 좋은 대안이 될 것입니다.
             </Content>
-
-            {/* 퀴즈 들어가야됨 */}
 
             <ContentTitle title="CSS 모듈" id="CSS-modules" />
             <Content>
@@ -244,7 +256,17 @@ export default function Page() {
               가지 방법을 모두 사용할 수도 있습니다!
             </Content>
 
-            {/* 퀴즈 들어가야됨 */}
+            <ContentQuiz
+              answers={[
+                "CSS 클래스의 글로벌 스코프를 증가시켜서 다른 파일들에서 쉽게 관리할 수 있도록 만들어줍니다.",
+                "디폴트로 CSS 클래스를 컴포넌트에 로컬 스코프로 만들어주어서 스타일 충돌을 방지합니다.",
+                "자동으로 CSS 파일을 압축하고 빠르게 로딩할 수 있도록 만들어줍니다.",
+              ]}
+              correctAnswer="디폴트로 CSS 클래스를 컴포넌트에 로컬 스코프로 만들어주어서 스타일 충돌을 방지합니다."
+              explanation="CSS 모듈은 각 컴포넌트에 대해서 고유한 클래스명을 생성하여 스타일 충돌에 대해서 걱정하지 않아도 됩니다."
+              hint="CSS 모듈은 스타일링 충돌은 방지하는데 훌륭한 옵션입니다!"
+              question="CSS 모듈을 사용함으로써 얻는 효과는 무엇일까요?"
+            />
 
             <ContentTitle
               title="Using the clsx library to toggle class names"
@@ -307,7 +329,17 @@ export default function InvoiceStatus({ status }: { status: string }) {
               language="tsx"
             />
 
-            {/* 퀴즈 들어가야됨 */}
+            <ContentQuiz
+              answers={[
+                "`status.tsx`와 `pagination.tsx`",
+                "`table.tsx`와 `status.tsx`",
+                "`nav-links.tsx`와 `table.tsx`",
+              ]}
+              correctAnswer="`status.tsx`와 `pagination.tsx`"
+              explanation="`status.tsx`와 `pagination.tsx` 컴포넌트가 `clsx`를 사용하여 조건부 클래스를 적용시키고 있습니다. "
+              hint="table.tsx는 아닙니다!"
+              question={`"clsx"를 코드에디터에서 찾아보세요. 어떤 컴포넌트들에 조건부 클래스가 적용되어있나요?`}
+            />
 
             <ContentTitle
               title="다른 스타일링 방법들"
