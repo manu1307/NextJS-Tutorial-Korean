@@ -4,7 +4,7 @@ export const contents = [
   {
     chapter: 3,
     title: "폰트 및 이미지 최적화",
-    link: "/tutorials/optimizing-fonts-and-images",
+    link: "/tutorials/optimizing-fonts-images",
   },
   {
     chapter: 4,

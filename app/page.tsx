@@ -21,7 +21,7 @@ import Header from "./components/ui/Header";
 import Typing from "./components/ui/Typing";
 
 import Link from "next/link";
-import { contents } from "./lib/data";
+import { contents } from "./lib/contents";
 
 export default function Page() {
   return (

@@ -8,7 +8,7 @@ import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
 import NavBar from "@/app/components/ui/Tutorial/nav-bar";
 import ContentQuiz from "@/app/components/ui/Tutorial/quiz";
-import { contents } from "@/app/lib/data";
+import { contents } from "@/app/lib/contents";
 import Image from "next/image";
 
 function Page() {
@@ -27,46 +27,43 @@ function Page() {
     },
   ];
   return (
-    <div>
-      <section className="relative mx-auto max-w-screen-lg px-4 py-4 md:py-10">
-        <div className="container mx-auto px-6 text-center flex flex-col items-center">
-          <NavBar chapter={data.chapter} title={data.title} />
-          <article className="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6 text-left">
-            <ArticleTop data={data} />
+    <>
+      <NavBar chapter={data.chapter} title={data.title} />
+      <article className="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6 text-left">
+        <ArticleTop data={data} />
 
-            <Content>
-              지금 우리의 페이지에는 아무런 스타일이 없습니다. 이제부터 Next.js
-              어플리케이션을 스타일할 수 있는 다양한 방법을 살펴보죠.
-            </Content>
-            <ContentGoal goals={goals} />
-            <ContentTitle title="글로벌 스타일" id="global-styles" />
-            <Content>
-              <CodeWithNoLink>/app/ui</CodeWithNoLink>폴더를 살펴보면,{" "}
-              <CodeWithNoLink>global.css</CodeWithNoLink>라는 파일을 볼 수 있을
-              겁니다. 당신은 이 파일을 통해 어플리케이션의 모든 페이지에 CSS를
-              추가할 수 있습니다. - CSS 리셋 규칙, 링크 스타일, 폰트 설정 등
-            </Content>
-            <Content>
-              당신은 <CodeWithNoLink>global.css</CodeWithNoLink>를
-              어플리케이션의 어떠한 곳에서 import 할 수 있지만, 가장 상위
-              컴포넌트에 추가하는 것이 더 좋은 연습이 될 것입니다. Next.js에서
-              이를{" "}
-              <CodeWithLink
-                link="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required"
-                isCode={false}
-              >
-                root Layout
-              </CodeWithLink>
-              이라고 부릅니다.
-            </Content>
-            <Content>
-              이제 <CodeWithNoLink>/app/layout.tsx</CodeWithNoLink>에서{" "}
-              <CodeWithNoLink>global.css</CodeWithNoLink>를 import하여 글로벌
-              스타일을 추가해봅시다.
-            </Content>
-            <CodeBlock
-              route={"/app/layout.tsx"}
-              code={`import '@/app/ui/global.css';
+        <Content>
+          지금 우리의 페이지에는 아무런 스타일이 없습니다. 이제부터 Next.js
+          어플리케이션을 스타일할 수 있는 다양한 방법을 살펴보죠.
+        </Content>
+        <ContentGoal goals={goals} />
+        <ContentTitle title="글로벌 스타일" id="global-styles" />
+        <Content>
+          <CodeWithNoLink>/app/ui</CodeWithNoLink>폴더를 살펴보면,{" "}
+          <CodeWithNoLink>global.css</CodeWithNoLink>라는 파일을 볼 수 있을
+          겁니다. 당신은 이 파일을 통해 어플리케이션의 모든 페이지에 CSS를
+          추가할 수 있습니다. - CSS 리셋 규칙, 링크 스타일, 폰트 설정 등
+        </Content>
+        <Content>
+          당신은 <CodeWithNoLink>global.css</CodeWithNoLink>를 어플리케이션의
+          어떠한 곳에서 import 할 수 있지만, 가장 상위 컴포넌트에 추가하는 것이
+          더 좋은 연습이 될 것입니다. Next.js에서 이를{" "}
+          <CodeWithLink
+            link="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required"
+            isCode={false}
+          >
+            root Layout
+          </CodeWithLink>
+          이라고 부릅니다.
+        </Content>
+        <Content>
+          이제 <CodeWithNoLink>/app/layout.tsx</CodeWithNoLink>에서{" "}
+          <CodeWithNoLink>global.css</CodeWithNoLink>를 import하여 글로벌
+          스타일을 추가해봅시다.
+        </Content>
+        <CodeBlock
+          route={"/app/layout.tsx"}
+          code={`import '@/app/ui/global.css';
  
 export default function RootLayout({
   children,
@@ -79,80 +76,77 @@ export default function RootLayout({
     </html>
   );
 }`}
-              language="tsx"
-            ></CodeBlock>
-            <Content>
-              개발 서버가 계속 실행 중에 두고, 변경된 코드를 저장한 후
-              브라우저로 접속해보세요. 그렇다면 아래와 같은 홈페이지가 뜨게 될
-              겁니다.
-            </Content>
-            <div className="relative w-full h-[560px]">
-              <Image
-                src="/home-page-with-tailwind.png"
-                alt="home-page-with-tailwind"
-                fill={true}
-              />
-            </div>
-            <Content>
-              잠시만요! 아무런 CSS 규칙을 추가하지 않았는데 이 스타일들은 다
-              어디서 온 걸까요?
-            </Content>
-            <Content>
-              <CodeWithNoLink>global.css</CodeWithNoLink>의 상단을 살펴보면,{" "}
-              <CodeWithNoLink>@tailwind</CodeWithNoLink>로 시작하는 코드를 볼 수
-              있습니다.
-            </Content>
-            <CodeBlock
-              route="/app/ui/global.css"
-              code={`@tailwind base;
+          language="tsx"
+        ></CodeBlock>
+        <Content>
+          개발 서버가 계속 실행 중에 두고, 변경된 코드를 저장한 후 브라우저로
+          접속해보세요. 그렇다면 아래와 같은 홈페이지가 뜨게 될 겁니다.
+        </Content>
+        <div className="relative w-full h-[560px]">
+          <Image
+            src="/home-page-with-tailwind.png"
+            alt="home-page-with-tailwind"
+            fill={true}
+          />
+        </div>
+        <Content>
+          잠시만요! 아무런 CSS 규칙을 추가하지 않았는데 이 스타일들은 다 어디서
+          온 걸까요?
+        </Content>
+        <Content>
+          <CodeWithNoLink>global.css</CodeWithNoLink>의 상단을 살펴보면,{" "}
+          <CodeWithNoLink>@tailwind</CodeWithNoLink>로 시작하는 코드를 볼 수
+          있습니다.
+        </Content>
+        <CodeBlock
+          route="/app/ui/global.css"
+          code={`@tailwind base;
 @tailwind components;
 @tailwind utilities;`}
-              language="css"
-            />
-            <ContentTitle title="Tailwind" id="tailwind" />
-            <Content>
-              <CodeWithLink link="https://tailwindcss.com/" isCode={false}>
-                Tailwind
-              </CodeWithLink>
-              는 TSX 파일에서{" "}
-              <CodeWithLink
-                link="https://tailwindcss.com/docs/utility-first"
-                isCode={false}
-              >
-                유틸리티 클래스
-              </CodeWithLink>
-              를 사용하여 개발 속도를 높여주는 CSS 프레임워크입니다.
-            </Content>
-            <Content>
-              Tailwind에서는 클래스 이름을 추가함으로서 스타일을 추가합니다.
-              예를 들어 <CodeWithNoLink>"text-blue-500"</CodeWithNoLink>을
-              추가하면 <CodeWithNoLink>h1</CodeWithNoLink>의 글자가 파란색으로
-              바뀝니다.
-            </Content>
-            <CodeBlock
-              code={`<h1 className="text-blue-500">I'm blue!</h1>`}
-              language="html"
-            />
-            <Content>
-              CSS 스타일들이 글로벌하게 공유되고 있음에도 불구하고, 각각의
-              클래스는 각각의 요소에 개별적으로 적용됩니다. 즉, 요소를
-              추가하거나 삭제할 때, 개별적인 스타일시트, 스타일 충돌 등을
-              신경쓰지 않아도 됩니다.
-            </Content>
-            <Content>
-              <CodeWithNoLink>create-next-app</CodeWithNoLink>을 통해 새로운
-              프로젝트를 시작했다면, Next.js는 Tailwind를 쓸지 안 쓸지 물어볼
-              것입니다. 만약 <CodeWithNoLink>yes</CodeWithNoLink>를 선택했다면,
-              Next.js는 Tailwind를 어플리케이션에서 사용하기 위한 필요한 설정과
-              패키지를 설치할 것입니다.
-            </Content>
-            <Content>
-              <CodeWithNoLink>/app/page.tsx</CodeWithNoLink>를 보면, Tailwind
-              클래스를 사용한 예시를 볼 수 있습니다.
-            </Content>
-            <CodeBlock
-              route="/app/page.tsx"
-              code={`import AcmeLogo from '@/app/ui/acme-logo';
+          language="css"
+        />
+        <ContentTitle title="Tailwind" id="tailwind" />
+        <Content>
+          <CodeWithLink link="https://tailwindcss.com/" isCode={false}>
+            Tailwind
+          </CodeWithLink>
+          는 TSX 파일에서{" "}
+          <CodeWithLink
+            link="https://tailwindcss.com/docs/utility-first"
+            isCode={false}
+          >
+            유틸리티 클래스
+          </CodeWithLink>
+          를 사용하여 개발 속도를 높여주는 CSS 프레임워크입니다.
+        </Content>
+        <Content>
+          Tailwind에서는 클래스 이름을 추가함으로서 스타일을 추가합니다. 예를
+          들어 <CodeWithNoLink>"text-blue-500"</CodeWithNoLink>을 추가하면{" "}
+          <CodeWithNoLink>h1</CodeWithNoLink>의 글자가 파란색으로 바뀝니다.
+        </Content>
+        <CodeBlock
+          code={`<h1 className="text-blue-500">I'm blue!</h1>`}
+          language="html"
+        />
+        <Content>
+          CSS 스타일들이 글로벌하게 공유되고 있음에도 불구하고, 각각의 클래스는
+          각각의 요소에 개별적으로 적용됩니다. 즉, 요소를 추가하거나 삭제할 때,
+          개별적인 스타일시트, 스타일 충돌 등을 신경쓰지 않아도 됩니다.
+        </Content>
+        <Content>
+          <CodeWithNoLink>create-next-app</CodeWithNoLink>을 통해 새로운
+          프로젝트를 시작했다면, Next.js는 Tailwind를 쓸지 안 쓸지 물어볼
+          것입니다. 만약 <CodeWithNoLink>yes</CodeWithNoLink>를 선택했다면,
+          Next.js는 Tailwind를 어플리케이션에서 사용하기 위한 필요한 설정과
+          패키지를 설치할 것입니다.
+        </Content>
+        <Content>
+          <CodeWithNoLink>/app/page.tsx</CodeWithNoLink>를 보면, Tailwind
+          클래스를 사용한 예시를 볼 수 있습니다.
+        </Content>
+        <CodeBlock
+          route="/app/page.tsx"
+          code={`import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
  
@@ -164,154 +158,143 @@ export default function Page() {
     // ...
   )
 }`}
-              language="tsx"
-            />
-            <Content>
-              Tailwind를 처음 써봐도 전혀 걱정하지 않아도 됩니다. 시간을 아끼기
-              위해서, 앞으로 사용할 컴포넌트들의 스타일을 이미 작성했습니다.
-            </Content>
-            <Content>
-              이제 Tailwind를 가지고 놀아보죠. 아래의 코드를 복사한 후
-              <CodeWithNoLink>/app/page.tsx</CodeWithNoLink>에서
-              <CodeWithNoLink>{"<p>"}</CodeWithNoLink> 요소 위에 붙여넣어보세요.
-            </Content>
-            <CodeBlock
-              route="/app/page.tsx"
-              code={`<div
+          language="tsx"
+        />
+        <Content>
+          Tailwind를 처음 써봐도 전혀 걱정하지 않아도 됩니다. 시간을 아끼기
+          위해서, 앞으로 사용할 컴포넌트들의 스타일을 이미 작성했습니다.
+        </Content>
+        <Content>
+          이제 Tailwind를 가지고 놀아보죠. 아래의 코드를 복사한 후
+          <CodeWithNoLink>/app/page.tsx</CodeWithNoLink>에서
+          <CodeWithNoLink>{"<p>"}</CodeWithNoLink> 요소 위에 붙여넣어보세요.
+        </Content>
+        <CodeBlock
+          route="/app/page.tsx"
+          code={`<div
   className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent"
 />`}
-              language="tsx"
-            />
-            <ContentQuiz
-              answers={[
-                "노란색 별",
-                "파란색 삼각형",
-                "검정색 삼각형",
-                "빨간색 원",
-              ]}
-              correctAnswer="검정색 삼각형"
-              explanation="border 클래스는 삼각형을 만드는 데 사용됩니다."
-              hint="코드상에서 올바르게 삼각형을 추가했는지 확인해보세요!"
-              question="위의 코드를 입력하면 어떤 모양이 보이나요?"
-            />
+          language="tsx"
+        />
+        <ContentQuiz
+          answers={["노란색 별", "파란색 삼각형", "검정색 삼각형", "빨간색 원"]}
+          correctAnswer="검정색 삼각형"
+          explanation="border 클래스는 삼각형을 만드는 데 사용됩니다."
+          hint="코드상에서 올바르게 삼각형을 추가했는지 확인해보세요!"
+          question="위의 코드를 입력하면 어떤 모양이 보이나요?"
+        />
 
-            <Content>
-              만약 전통적인 CSS나 JSX와 스타일을 구별해서 사용하고 싶다면 - CSS
-              모듈은 아주 좋은 대안이 될 것입니다.
-            </Content>
+        <Content>
+          만약 전통적인 CSS나 JSX와 스타일을 구별해서 사용하고 싶다면 - CSS
+          모듈은 아주 좋은 대안이 될 것입니다.
+        </Content>
 
-            <ContentTitle title="CSS 모듈" id="CSS-modules" />
-            <Content>
-              <CodeWithLink
-                link="https://nextjs.org/docs/pages/building-your-application/styling"
-                isCode={false}
-              >
-                CSS Modules
-              </CodeWithLink>
-              은 고유의 클래스명을 통해서 CSS 파일을 컴포넌트와 연결시켜줍니다.
-              따라서 스타일 충돌에 대해서 걱정할 필요가 없죠.
-            </Content>
-            <Content>
-              우리는 이 코스에서 Tailwind를 계속 사용할 것입니다. 하지만, CSS
-              모듈을 사용해서 위의 퀴즈에서 얻은 결과와 똑같은 결과를
-              만들어봅시다.
-            </Content>
-            <Content>
-              <CodeWithNoLink>/app/ui</CodeWithNoLink> 안에서,{" "}
-              <CodeWithNoLink>home.module.css</CodeWithNoLink>라는 파일을 만들고
-              아래의 CSS 규칙들을 추가해보세요.
-            </Content>
-            <CodeBlock
-              route="/app/ui/home.module.css"
-              code={`.shape {
+        <ContentTitle title="CSS 모듈" id="CSS-modules" />
+        <Content>
+          <CodeWithLink
+            link="https://nextjs.org/docs/pages/building-your-application/styling"
+            isCode={false}
+          >
+            CSS Modules
+          </CodeWithLink>
+          은 고유의 클래스명을 통해서 CSS 파일을 컴포넌트와 연결시켜줍니다.
+          따라서 스타일 충돌에 대해서 걱정할 필요가 없죠.
+        </Content>
+        <Content>
+          우리는 이 코스에서 Tailwind를 계속 사용할 것입니다. 하지만, CSS 모듈을
+          사용해서 위의 퀴즈에서 얻은 결과와 똑같은 결과를 만들어봅시다.
+        </Content>
+        <Content>
+          <CodeWithNoLink>/app/ui</CodeWithNoLink> 안에서,{" "}
+          <CodeWithNoLink>home.module.css</CodeWithNoLink>라는 파일을 만들고
+          아래의 CSS 규칙들을 추가해보세요.
+        </Content>
+        <CodeBlock
+          route="/app/ui/home.module.css"
+          code={`.shape {
   height: 0;
   width: 0;
   border-bottom: 30px solid black;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
 }`}
-              language="css"
-            />
-            <Content>
-              이제 <CodeWithNoLink>/app/page.tsx</CodeWithNoLink>에서 파일을
-              불러와서 Tailwind 클래스 명 대신에{" "}
-              <CodeWithNoLink>styles.shape</CodeWithNoLink>를{" "}
-              <CodeWithNoLink>{"<div>"}</CodeWithNoLink>에 추가해보세요.
-            </Content>
-            <CodeBlock
-              route="/app/page.tsx"
-              code={`import styles from '@/app/ui/home.module.css';
+          language="css"
+        />
+        <Content>
+          이제 <CodeWithNoLink>/app/page.tsx</CodeWithNoLink>에서 파일을
+          불러와서 Tailwind 클래스 명 대신에{" "}
+          <CodeWithNoLink>styles.shape</CodeWithNoLink>를{" "}
+          <CodeWithNoLink>{"<div>"}</CodeWithNoLink>에 추가해보세요.
+        </Content>
+        <CodeBlock
+          route="/app/page.tsx"
+          code={`import styles from '@/app/ui/home.module.css';
 
 <div className={styles.shape}>`}
-              language="tsx"
-            />
-            <Content>
-              이제 저장한 후에 브라우저에서 결과를 확인해볼까요? 퀴즈에서 생겼던
-              모양과 똑같은 모양을 볼 수 있습니다.
-            </Content>
-            <Content>
-              Tailwind와 CSS 모듈은 Next.js 어플리케이션에서 스타일을 추가하는
-              가장 흔한 방법들입니다. 둘 중에 어떤 것을 사용할 지는 개인의
-              선호도에 따라 결정하면 될 것 같습니다. 하나의 어플리케이션에서 두
-              가지 방법을 모두 사용할 수도 있습니다!
-            </Content>
+          language="tsx"
+        />
+        <Content>
+          이제 저장한 후에 브라우저에서 결과를 확인해볼까요? 퀴즈에서 생겼던
+          모양과 똑같은 모양을 볼 수 있습니다.
+        </Content>
+        <Content>
+          Tailwind와 CSS 모듈은 Next.js 어플리케이션에서 스타일을 추가하는 가장
+          흔한 방법들입니다. 둘 중에 어떤 것을 사용할 지는 개인의 선호도에 따라
+          결정하면 될 것 같습니다. 하나의 어플리케이션에서 두 가지 방법을 모두
+          사용할 수도 있습니다!
+        </Content>
 
-            <ContentQuiz
-              answers={[
-                "CSS 클래스의 글로벌 스코프를 증가시켜서 다른 파일들에서 쉽게 관리할 수 있도록 만들어줍니다.",
-                "디폴트로 CSS 클래스를 컴포넌트에 로컬 스코프로 만들어주어서 스타일 충돌을 방지합니다.",
-                "자동으로 CSS 파일을 압축하고 빠르게 로딩할 수 있도록 만들어줍니다.",
-              ]}
-              correctAnswer="디폴트로 CSS 클래스를 컴포넌트에 로컬 스코프로 만들어주어서 스타일 충돌을 방지합니다."
-              explanation="CSS 모듈은 각 컴포넌트에 대해서 고유한 클래스명을 생성하여 스타일 충돌에 대해서 걱정하지 않아도 됩니다."
-              hint="CSS 모듈은 스타일링 충돌은 방지하는데 훌륭한 옵션입니다!"
-              question="CSS 모듈을 사용함으로써 얻는 효과는 무엇일까요?"
-            />
+        <ContentQuiz
+          answers={[
+            "CSS 클래스의 글로벌 스코프를 증가시켜서 다른 파일들에서 쉽게 관리할 수 있도록 만들어줍니다.",
+            "디폴트로 CSS 클래스를 컴포넌트에 로컬 스코프로 만들어주어서 스타일 충돌을 방지합니다.",
+            "자동으로 CSS 파일을 압축하고 빠르게 로딩할 수 있도록 만들어줍니다.",
+          ]}
+          correctAnswer="디폴트로 CSS 클래스를 컴포넌트에 로컬 스코프로 만들어주어서 스타일 충돌을 방지합니다."
+          explanation="CSS 모듈은 각 컴포넌트에 대해서 고유한 클래스명을 생성하여 스타일 충돌에 대해서 걱정하지 않아도 됩니다."
+          hint="CSS 모듈은 스타일링 충돌은 방지하는데 훌륭한 옵션입니다!"
+          question="CSS 모듈을 사용함으로써 얻는 효과는 무엇일까요?"
+        />
 
-            <ContentTitle
-              title="Using the clsx library to toggle class names"
-              id="using-the-clsx-library-to-toggle-class-names"
-            />
-            <Content>
-              개발을 하다보면 상태나 다른 특정 조건에 따라서 조건부 스타일링을
-              적용시켜야할 수도 있습니다.
-            </Content>
-            <Content>
-              <CodeWithLink link="https://www.npmjs.com/package/clsx">
-                clsx
-              </CodeWithLink>
-              는 클래스명을 쉽게 토글할 수 있도록 도와주는 라이브러리입니다. 더
-              자세한 내용들에 대해서는{" "}
-              <CodeWithLink
-                link="https://github.com/lukeed/clsx"
-                isCode={false}
-              >
-                공식 문서
-              </CodeWithLink>
-              를 보는 것을 추천드리지만, 기본적인 사용법은 다음과 같습니다.
-            </Content>
-            <ul className="list-disc pl-8 flex flex-col gap-4 my-5">
-              <li>
-                <CodeWithNoLink>status</CodeWithNoLink>를 받는{" "}
-                <CodeWithNoLink>InvoiceStatus</CodeWithNoLink> 컴포넌트를 만들고
-                싶다고 가정해보죠. 상태는{" "}
-                <CodeWithNoLink>'pending'</CodeWithNoLink>이나{" "}
-                <CodeWithNoLink>'paid'</CodeWithNoLink>입니다.
-              </li>
-              <li>
-                만약 <CodeWithNoLink>'paid'</CodeWithNoLink>라면, 색깔을
-                초록색으로 바꾸고 싶습니다. 만약{" "}
-                <CodeWithNoLink>'pending'</CodeWithNoLink>라면, 색깔을 회색으로
-                바꾸고 싶습니다.
-              </li>
-            </ul>
-            <Content>
-              이러한 경우에는 <CodeWithNoLink>clsx</CodeWithNoLink>를 사용해서
-              조건부 클래스를 적용시킬 수 있습니다.
-            </Content>
-            <CodeBlock
-              route="/app/ui/invoices/status.tsx"
-              code={`import clsx from 'clsx';
+        <ContentTitle
+          title="Using the clsx library to toggle class names"
+          id="using-the-clsx-library-to-toggle-class-names"
+        />
+        <Content>
+          개발을 하다보면 상태나 다른 특정 조건에 따라서 조건부 스타일링을
+          적용시켜야할 수도 있습니다.
+        </Content>
+        <Content>
+          <CodeWithLink link="https://www.npmjs.com/package/clsx">
+            clsx
+          </CodeWithLink>
+          는 클래스명을 쉽게 토글할 수 있도록 도와주는 라이브러리입니다. 더
+          자세한 내용들에 대해서는{" "}
+          <CodeWithLink link="https://github.com/lukeed/clsx" isCode={false}>
+            공식 문서
+          </CodeWithLink>
+          를 보는 것을 추천드리지만, 기본적인 사용법은 다음과 같습니다.
+        </Content>
+        <ul className="list-disc pl-8 flex flex-col gap-4 my-5">
+          <li>
+            <CodeWithNoLink>status</CodeWithNoLink>를 받는{" "}
+            <CodeWithNoLink>InvoiceStatus</CodeWithNoLink> 컴포넌트를 만들고
+            싶다고 가정해보죠. 상태는 <CodeWithNoLink>'pending'</CodeWithNoLink>
+            이나 <CodeWithNoLink>'paid'</CodeWithNoLink>입니다.
+          </li>
+          <li>
+            만약 <CodeWithNoLink>'paid'</CodeWithNoLink>라면, 색깔을 초록색으로
+            바꾸고 싶습니다. 만약 <CodeWithNoLink>'pending'</CodeWithNoLink>
+            라면, 색깔을 회색으로 바꾸고 싶습니다.
+          </li>
+        </ul>
+        <Content>
+          이러한 경우에는 <CodeWithNoLink>clsx</CodeWithNoLink>를 사용해서
+          조건부 클래스를 적용시킬 수 있습니다.
+        </Content>
+        <CodeBlock
+          route="/app/ui/invoices/status.tsx"
+          code={`import clsx from 'clsx';
  
 export default function InvoiceStatus({ status }: { status: string }) {
   return (
@@ -326,83 +309,81 @@ export default function InvoiceStatus({ status }: { status: string }) {
     >
     // ...
 )}`}
-              language="tsx"
-            />
+          language="tsx"
+        />
 
-            <ContentQuiz
-              answers={[
-                "`status.tsx`와 `pagination.tsx`",
-                "`table.tsx`와 `status.tsx`",
-                "`nav-links.tsx`와 `table.tsx`",
-              ]}
-              correctAnswer="`status.tsx`와 `pagination.tsx`"
-              explanation="`status.tsx`와 `pagination.tsx` 컴포넌트가 `clsx`를 사용하여 조건부 클래스를 적용시키고 있습니다. "
-              hint="table.tsx는 아닙니다!"
-              question={`"clsx"를 코드에디터에서 찾아보세요. 어떤 컴포넌트들에 조건부 클래스가 적용되어있나요?`}
-            />
+        <ContentQuiz
+          answers={[
+            "`status.tsx`와 `pagination.tsx`",
+            "`table.tsx`와 `status.tsx`",
+            "`nav-links.tsx`와 `table.tsx`",
+          ]}
+          correctAnswer="`status.tsx`와 `pagination.tsx`"
+          explanation="`status.tsx`와 `pagination.tsx` 컴포넌트가 `clsx`를 사용하여 조건부 클래스를 적용시키고 있습니다. "
+          hint="table.tsx는 아닙니다!"
+          question={`"clsx"를 코드에디터에서 찾아보세요. 어떤 컴포넌트들에 조건부 클래스가 적용되어있나요?`}
+        />
 
-            <ContentTitle
-              title="다른 스타일링 방법들"
-              id="other-styling-solutions"
-            />
-            <Content>
-              우리가 지금까지 살펴본 접근법 외에도 다양한 스타일링 방법들을
-              Next.js 어플리케이션에 적용시킬 수 있습니다.
-            </Content>
-            <ul className="list-disc pl-8 flex flex-col gap-4 my-5">
-              <li>
-                <CodeWithNoLink>.css</CodeWithNoLink>나{" "}
-                <CodeWithNoLink>.scss</CodeWithNoLink> 파일을 import하여
-                사용하는 Sass
-              </li>
-              <li>
-                CSS-in-JS 라이브러리 -{" "}
-                <CodeWithLink
-                  link="https://github.com/vercel/styled-jsx"
-                  isCode={false}
-                >
-                  styled-jsx
-                </CodeWithLink>
-                ,
-                <CodeWithLink
-                  link="https://github.com/vercel/next.js/tree/canary/examples/with-styled-components"
-                  isCode={false}
-                >
-                  styled-components
-                </CodeWithLink>
-                ,
-                <CodeWithLink
-                  link="https://github.com/vercel/next.js/tree/canary/examples/with-emotion"
-                  isCode={false}
-                >
-                  emotion
-                </CodeWithLink>
-              </li>
-            </ul>
-            <Content>
-              더 많은 정보들을 원한다면,{" "}
-              <CodeWithLink
-                link="https://nextjs.org/docs/app/building-your-application/styling"
-                isCode={false}
-              >
-                CSS 관련 문서
-              </CodeWithLink>
-              를 한 번 살펴보세요.
-            </Content>
-            <Complete
-              completeChapter={data.chapter}
-              nextChapter={nextData.chapter}
-              nextChapterTitle={nextData.title}
-              nextChapterDescription="이제 우리는 홈페이지에 hero 이미지와 커스텀 폰트를 추가해볼 것입니다."
-              nextChapterLink={nextData.link}
+        <ContentTitle
+          title="다른 스타일링 방법들"
+          id="other-styling-solutions"
+        />
+        <Content>
+          우리가 지금까지 살펴본 접근법 외에도 다양한 스타일링 방법들을 Next.js
+          어플리케이션에 적용시킬 수 있습니다.
+        </Content>
+        <ul className="list-disc pl-8 flex flex-col gap-4 my-5">
+          <li>
+            <CodeWithNoLink>.css</CodeWithNoLink>나{" "}
+            <CodeWithNoLink>.scss</CodeWithNoLink> 파일을 import하여 사용하는
+            Sass
+          </li>
+          <li>
+            CSS-in-JS 라이브러리 -{" "}
+            <CodeWithLink
+              link="https://github.com/vercel/styled-jsx"
+              isCode={false}
             >
-              축하드립니다! Next.js 어플리케이션에서 스타일을 추가하는 다양한
-              방법을 살펴보았습니다.
-            </Complete>
-          </article>
-        </div>
-      </section>
-    </div>
+              styled-jsx
+            </CodeWithLink>
+            ,
+            <CodeWithLink
+              link="https://github.com/vercel/next.js/tree/canary/examples/with-styled-components"
+              isCode={false}
+            >
+              styled-components
+            </CodeWithLink>
+            ,
+            <CodeWithLink
+              link="https://github.com/vercel/next.js/tree/canary/examples/with-emotion"
+              isCode={false}
+            >
+              emotion
+            </CodeWithLink>
+          </li>
+        </ul>
+        <Content>
+          더 많은 정보들을 원한다면,{" "}
+          <CodeWithLink
+            link="https://nextjs.org/docs/app/building-your-application/styling"
+            isCode={false}
+          >
+            CSS 관련 문서
+          </CodeWithLink>
+          를 한 번 살펴보세요.
+        </Content>
+        <Complete
+          completeChapter={data.chapter}
+          nextChapter={nextData.chapter}
+          nextChapterTitle={nextData.title}
+          nextChapterDescription="이제 우리는 홈페이지에 hero 이미지와 커스텀 폰트를 추가해볼 것입니다."
+          nextChapterLink={nextData.link}
+        >
+          축하드립니다! Next.js 어플리케이션에서 스타일을 추가하는 다양한 방법을
+          살펴보았습니다.
+        </Complete>
+      </article>
+    </>
   );
 }
 
