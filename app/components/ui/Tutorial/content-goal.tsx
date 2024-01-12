@@ -3,6 +3,9 @@ import React from "react";
 import Docs from "../../icons/goals/Docs";
 import Write from "../../icons/goals/Write";
 import Utils from "../../icons/goals/Utils";
+import Text from "../../icons/goals/Text";
+import Check from "../../icons/Check_black";
+import Image from "../../icons/goals/Image";
 
 export type Goal = {
   type: string;
@@ -16,11 +19,16 @@ const Icons = (type: string) => {
   switch (type) {
     case "docs":
       return <Docs />;
-      ``;
     case "write":
       return <Write />;
     case "utils":
       return <Utils />;
+    case "text":
+      return <Text />;
+    case "check":
+      return <Check />;
+    case "image":
+      return <Image />;
   }
 };
 function ContentGoal({ goals }: ContentGoalProps) {

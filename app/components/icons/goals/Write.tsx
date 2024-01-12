@@ -1,5 +1,3 @@
-import React from "react";
-
 function Write() {
   return (
     <svg height="16" strokeLinejoin="round" viewBox="0 0 16 16" width="16">
