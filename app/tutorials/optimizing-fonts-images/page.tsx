@@ -4,11 +4,13 @@ import CodeWithNoLink from "@/app/components/ui/Tutorial/code-with-no-link";
 import CodeBlock from "@/app/components/ui/Tutorial/codeblock";
 import Content from "@/app/components/ui/Tutorial/content";
 import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
+import ContentList from "@/app/components/ui/Tutorial/content-list-wrapper";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
 import NavBar from "@/app/components/ui/Tutorial/nav-bar";
 import ContentQuiz from "@/app/components/ui/Tutorial/quiz";
 import { contents } from "@/app/lib/contents";
 import Image from "next/image";
+import { Code } from "react-code-blocks";
 
 function Page() {
   const data = contents[2];
@@ -153,6 +155,72 @@ export default function RootLayout({
           아래 스타일을 보면 <CodeWithNoLink>Inter</CodeWithNoLink>과{" "}
           <CodeWithNoLink>Inter_Fallback</CodeWithNoLink>이 적용된 것을 볼 수
           있습니다.
+        </Content>
+        {/* 연습 섹션 */}
+
+        <Content>
+          마지막으로 <CodeWithNoLink>{"<AcmeLogo/>"}</CodeWithNoLink>도
+          Lusitana를 사용하고 있습니다. 에러를 방지하기 위해서 주석 처리가
+          되어있는데, 주석을 해제해도 됩니다.
+        </Content>
+        <CodeBlock
+          route="/app/page.tsx"
+          code={`// ...
+ 
+export default function Page() {
+  return (
+    <main className="flex min-h-screen flex-col p-6">
+      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
+        <AcmeLogo />
+        {/* ... */}
+      </div>
+    </main>
+  );
+}`}
+          language="tsx"
+        />
+        <Content>
+          좋습니다! 당신은 어플레케이션에 2개의 커스텀 폰트를 추가했습니다!
+          다음으로 홈페이지에 hero 이미지를 추가해봅시다.
+        </Content>
+        <ContentTitle
+          title="왜 이미지를 최적화하는가?"
+          id="why-optimize-images"
+        />
+        <Content>
+          Next.js 는 이미지와 같은<b>정적 자원</b>을{" "}
+          <CodeWithNoLink>/public</CodeWithNoLink> 폴더를 통해 제공합니다.{" "}
+          <CodeWithNoLink>/public</CodeWithNoLink> 안에 있는 파일들은
+          어플리케이션에서 참조가 가능합니다.
+        </Content>
+        <Content>
+          일반 HTML에서는 아래와 같이 이미지를 추가할 수 있습니다.
+        </Content>
+        <CodeBlock
+          code={`<img
+  src="/hero.png"
+  alt="Screenshots of the dashboard project showing desktop version"
+/>`}
+          language="html"
+        />
+        <Content>이것이 의미하는 것은 당신이 수동으로 :</Content>
+        <ContentList>
+          <li>
+            이미지가 다른 화면 크기에 따라 반응형으로 동작으로 있도록 해주어야
+            합니다.
+          </li>
+          <li>기기들에 따라 이미지 크기를 지정해주어야 합니다.</li>
+          <li>이미지들이 로딩될 때 화면의 변화를 방지해야 합니다. </li>
+          <li>
+            유저 뷰포트 바깥에 있는 이미지들의 게으른 로딩을 설정해주어야
+            합니다.
+          </li>
+        </ContentList>
+        <Content>
+          이미지 최적화는 그 자체로도 웹 개발에서 거대한 주제입니다. 이러한
+          최적화를 일일이 설정해주는 대신,{" "}
+          <CodeWithNoLink>next/image</CodeWithNoLink> 컴포넌트를 활용함으로써
+          이미지를 자동으로 최적화할 수 있습니다.
         </Content>
       </article>
     </>

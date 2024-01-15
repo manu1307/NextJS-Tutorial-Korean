@@ -4,6 +4,7 @@ import CodeWithNoLink from "@/app/components/ui/Tutorial/code-with-no-link";
 import CodeBlock from "@/app/components/ui/Tutorial/codeblock";
 import Complete from "@/app/components/ui/Tutorial/complete";
 import Content from "@/app/components/ui/Tutorial/content";
+import ContentList from "@/app/components/ui/Tutorial/content-list-wrapper";
 import ContentSubtitle from "@/app/components/ui/Tutorial/content-subtitle";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
 import NavBar from "@/app/components/ui/Tutorial/nav-bar";
@@ -89,7 +90,7 @@ function Page() {
           />
         </div>
 
-        <ul className="list-disc pl-8 flex flex-col gap-4 my-5">
+        <ContentList>
           <li>
             <CodeWithNoLink>/app</CodeWithNoLink> : 어플리케이션의 모든 루트,
             컴포넌트, 로직들이 담겨져있는 폴더이고, 대부분의 작업은 여기서
@@ -122,7 +123,7 @@ function Page() {
             설정되어있거나 생성된 것이므로 해당 코스를 수행하는데 이를 수정할
             필요는 없습니다.
           </li>
-        </ul>
+        </ContentList>
         <Content>
           프로젝트를 자유롭게 둘러보시길 바랍니다. 코드가 무엇을 의미하는지 전부
           다 이해하지 못하더라도 전혀 걱정할 필요 없습니다.
@@ -133,7 +134,7 @@ function Page() {
           매우 도움이 됩니다. 만약 데이터베이스나 API가 아직 준비되지 않았다면,
           당신은
         </Content>
-        <ul className="list-disc pl-8 flex flex-col gap-4 my-5">
+        <ContentList>
           <li>
             Placeholder 데이터를 JSON 포맷이나 Javascript 객체로 사용하거나
           </li>
@@ -143,7 +144,7 @@ function Page() {
             </CodeWithLink>
             와 같은 서드 파티 라이브러리
           </li>
-        </ul>
+        </ContentList>
         <Content>
           이번 프로젝트에서는,{" "}
           <CodeWithNoLink>app/lib/placeholder-data.js</CodeWithNoLink>에 임의의
