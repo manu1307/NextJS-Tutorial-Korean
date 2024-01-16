@@ -222,6 +222,41 @@ export default function Page() {
           <CodeWithNoLink>next/image</CodeWithNoLink> 컴포넌트를 활용함으로써
           이미지를 자동으로 최적화할 수 있습니다.
         </Content>
+        <ContentTitle title={`<Image/> 컴포넌트`} id="the-image-component" />
+        <Content>
+          <CodeWithNoLink>{`<Image>`}</CodeWithNoLink> 컴포넌트는 HTML{" "}
+          <CodeWithNoLink>{`<img>`}</CodeWithNoLink> 태그에 자동적인 이미지
+          최적화를 더한 확장판이다. 또한
+        </Content>
+        <ContentList>
+          <li>이미지들이 로딩중일 때의 레이아웃 변화를 막하줍니다.</li>
+          <li>
+            큰 크기의 이미지를 작은 뷰포트를 가진 기기에 출력할 때 크기를
+            조절해줍니다.
+          </li>
+          <li>
+            이미지들의 게으른 로딩을 지원합니다. (뷰포트에 진입할 때 이미지를
+            로드합니다.)
+          </li>
+          <li>
+            이미지들을{" "}
+            <CodeWithLink
+              link="https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types#webp"
+              isCode={false}
+            >
+              WebP
+            </CodeWithLink>
+            나
+            <CodeWithLink
+              link="https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types#webp"
+              isCode={false}
+            >
+              AVIF
+            </CodeWithLink>
+            와 같은 최신 포맷으로 이미지를 제공합니다. (단, 브라우저가
+            지원해야합니다.)
+          </li>
+        </ContentList>
       </article>
     </>
   );
