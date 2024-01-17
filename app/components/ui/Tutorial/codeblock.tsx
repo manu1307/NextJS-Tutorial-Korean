@@ -24,7 +24,7 @@ function CodeBlock({
   const [isAnimating, setIsAnimating] = useState(false);
 
   return (
-    <div className="relative border-[1px] border-vercel-200 rounded-lg my-4 leading-4">
+    <div className="relative border-[1px] border-vercel-300 rounded-lg my-4 leading-4">
       <div className="absolute top-0 text-vercel-600 z-10 bg-vercel-200 w-full py-2 pl-3 pr-5 flex justify-between items-center">
         {route ? route : <div></div>}
         <div className="relative">

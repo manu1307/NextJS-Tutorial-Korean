@@ -5,6 +5,7 @@ import CodeBlock from "@/app/components/ui/Tutorial/codeblock";
 import Content from "@/app/components/ui/Tutorial/content";
 import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
 import ContentList from "@/app/components/ui/Tutorial/content-list-wrapper";
+import ContentPractice from "@/app/components/ui/Tutorial/content-practice";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
 import NavBar from "@/app/components/ui/Tutorial/nav-bar";
 import ContentQuiz from "@/app/components/ui/Tutorial/quiz";
@@ -156,8 +157,62 @@ export default function RootLayout({
           <CodeWithNoLink>Inter_Fallback</CodeWithNoLink>이 적용된 것을 볼 수
           있습니다.
         </Content>
-        {/* 연습 섹션 */}
-
+        <ContentTitle
+          title="연습 : 2차적인 폰트 추가하기"
+          id="adding-a-secondary-font"
+        />
+        <Content>
+          우리는 추가적인 폰트를 특정 요소에 추가할 수도 있습니다.
+        </Content>
+        <Content>
+          이제 당신의 차례입니다! <CodeWithNoLink>fonts.ts</CodeWithNoLink> 에서{" "}
+          <CodeWithNoLink>Lusitana</CodeWithNoLink> 2차 폰트를 추가하고{" "}
+          <CodeWithNoLink>/app/page.tsx</CodeWithNoLink>파일에 있는{" "}
+          <CodeWithNoLink>{`<p/>`}</CodeWithNoLink> 요소에 적용시켜보세요.
+          이전에 폰트를 적용시킨 것과 달리 추가적으로 <b>font weight</b>를
+          설정해야합니다.
+        </Content>
+        <Content>
+          준비가 되었다면, 아래의 코드를 펼쳐서 솔루션을 확인해보세요.
+        </Content>
+        <ContentPractice>
+          <CodeBlock
+            route="/app/ui/fonts.ts"
+            code={`import { Inter, Lusitana } from 'next/font/google';
+ 
+export const inter = Inter({ subsets: ['latin'] });
+ 
+export const lusitana = Lusitana({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+});`}
+            language="typescript"
+          />
+          <CodeBlock
+            route="/app/page.tsx"
+            code={`import AcmeLogo from '@/app/ui/acme-logo';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { lusitana } from '@/app/ui/fonts';
+ 
+export default function Page() {
+  return (
+    // ...
+    <p
+      className={\`\${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal\`\}
+    >
+      <strong>Welcome to Acme.</strong> This is the example for the{' '}
+      <a href="https://nextjs.org/learn/" className="text-blue-500">
+        Next.js Learn Course
+      </a>
+      , brought to you by Vercel.
+    </p>
+    // ...
+  );
+}`}
+            language="tsx"
+          />
+        </ContentPractice>
         <Content>
           마지막으로 <CodeWithNoLink>{"<AcmeLogo/>"}</CodeWithNoLink>도
           Lusitana를 사용하고 있습니다. 에러를 방지하기 위해서 주석 처리가
