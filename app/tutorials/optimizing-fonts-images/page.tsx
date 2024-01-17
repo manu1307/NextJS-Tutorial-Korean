@@ -2,6 +2,7 @@ import ArticleTop from "@/app/components/ui/Tutorial/article-top";
 import CodeWithLink from "@/app/components/ui/Tutorial/code-with-link";
 import CodeWithNoLink from "@/app/components/ui/Tutorial/code-with-no-link";
 import CodeBlock from "@/app/components/ui/Tutorial/codeblock";
+import Complete from "@/app/components/ui/Tutorial/complete";
 import Content from "@/app/components/ui/Tutorial/content";
 import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
 import ContentList from "@/app/components/ui/Tutorial/content-list-wrapper";
@@ -15,6 +16,7 @@ import { Code } from "react-code-blocks";
 
 function Page() {
   const data = contents[2];
+  const nextData = contents[3];
   const goals: Goal[] = [
     {
       type: "text",
@@ -312,6 +314,199 @@ export default function Page() {
             지원해야합니다.)
           </li>
         </ContentList>
+        <ContentTitle
+          title="데스크탑 hero 이미 추가하기"
+          id="adding-the-desktop-hero-image"
+        />
+        <Content>
+          이제 <CodeWithNoLink>{`<Image>`}</CodeWithNoLink> 컴포넌트를 사용해
+          봅시다. <CodeWithNoLink>/public</CodeWithNoLink> 폴더를 살펴보면, 두
+          개의 이미지를 확인할 수 있습니다. 하나는{" "}
+          <CodeWithNoLink>hero-desktop.png</CodeWithNoLink> 이고, 다른 하나는{" "}
+          <CodeWithNoLink>hero-mobile.png</CodeWithNoLink>. 이 두 개의 이미지는
+          완전히 다른 이미지입니다. 사용자의 디바이스가 데스크탑인지
+          모바일인지에 따라 다른 이미지를 보여줄 것입니다.
+        </Content>
+        <Content>
+          <CodeWithNoLink>/app/page.tsx</CodeWithNoLink>에서{" "}
+          <CodeWithLink link="https://nextjs.org/docs/pages/api-reference/components/image">
+            next/image
+          </CodeWithLink>
+          로부터 컴포넌트를 import해주세요. 그리고 주석 아래에 이미지를
+          추가해주세요.
+        </Content>
+        <CodeBlock
+          route="/app/page.tsx"
+          code={`import AcmeLogo from '@/app/ui/acme-logo';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { lusitana } from '@/app/ui/fonts';
+import Image from 'next/image';
+ 
+export default function Page() {
+  return (
+    // ...
+    <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
+      {/* Add Hero Images Here */}
+      <Image
+        src="/hero-desktop.png"
+        width={1000}
+        height={760}
+        className="hidden md:block"
+        alt="Screenshots of the dashboard project showing desktop version"
+      />
+    </div>
+    //...
+  );
+}`}
+          language="tsx"
+        />
+        <Content>
+          여기서 <CodeWithNoLink>width</CodeWithNoLink>를{" "}
+          <CodeWithNoLink>1000</CodeWithNoLink>으로,
+          <CodeWithNoLink>height</CodeWithNoLink>를{" "}
+          <CodeWithNoLink>760</CodeWithNoLink> 픽셀로 설정을 했습니다.
+          <CodeWithNoLink>width</CodeWithNoLink>와
+          <CodeWithNoLink>height</CodeWithNoLink>를 정해주는 것은 레아이웃
+          변화를 방지할 수 있고, 이는 원본 이미지의 크기 비율과 일치해야 합니다.
+        </Content>
+        <Content>
+          또한 <CodeWithNoLink>hidden</CodeWithNoLink> 클래스를 통해 모바일
+          화면의 DOM에서 이미지를 안 보이게 하였고,{" "}
+          <CodeWithNoLink>md:block</CodeWithNoLink>을 통해 데스크탑 화면에서는
+          이미지를 보이게 했습니다.
+        </Content>
+        <Content>홈페이지는 아래와 같은 화면을 나타내게 될 것입니다.</Content>
+        <Image
+          className="bg-vercel-200 rounded-xl"
+          src={"/home-page-with-hero.png"}
+          alt="home-page-with-hero"
+          width={960}
+          height={566}
+        />
+        <ContentTitle
+          title="연습 : 모바일 hero 이미지 추가하기"
+          id="adding-the-mobile-hero-image"
+        />
+        <Content>
+          자 이제 당신의 차례입니다! 당신이 추가한 이미지 코드 아래에,{" "}
+          <CodeWithNoLink>hero-mobile.png</CodeWithNoLink>를 위한 또 다른{" "}
+          <CodeWithNoLink>{`<Image>`}</CodeWithNoLink> 컴포넌트를 추가해보세요.
+        </Content>
+        <ContentList>
+          <li>
+            이미지는
+            <CodeWithNoLink>width</CodeWithNoLink>를
+            <CodeWithNoLink>500</CodeWithNoLink>,
+            <CodeWithNoLink>height</CodeWithNoLink>는
+            <CodeWithNoLink>620</CodeWithNoLink> 픽셀로 설정해주세요.
+          </li>
+          <li>
+            이미지는 모바일 스크린에서는 보여야 하고, 데스크탑에서는 안 보여야
+            합니다. - 개발자 도구를 통해서 데스크탑, 모바일 화면을 확인할 수
+            있습니다.
+          </li>
+        </ContentList>
+        <Content>
+          준비가 되었다면, 아래의 코드를 펼쳐서 솔루션을 확인해보세요.
+        </Content>
+        <ContentPractice>
+          <CodeBlock
+            route="/app/page.tsx"
+            code={`import AcmeLogo from '@/app/ui/acme-logo';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { lusitana } from '@/app/ui/fonts';
+import Image from 'next/image';
+ 
+export default function Page() {
+  return (
+    // ...
+    <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
+      {/* Add Hero Images Here */}
+      <Image
+        src="/hero-desktop.png"
+        width={1000}
+        height={760}
+        className="hidden md:block"
+        alt="Screenshots of the dashboard project showing desktop version"
+      />
+      <Image
+        src="/hero-mobile.png"
+        width={560}
+        height={620}
+        className="block md:hidden"
+        alt="Screenshot of the dashboard project showing mobile version"
+      />
+    </div>
+    //...
+  );
+}`}
+            language="tsx"
+          />
+        </ContentPractice>
+        <Content>
+          좋습니다! 홈페이지에 이제 커스텀 폰트와 hero 이미지가 추가되었습니다.
+        </Content>
+        <ContentQuiz
+          answers={["참", "거짓"]}
+          question="참 또는 거짓: 차수와 웹 폰트가 없는 이미지는 레이아웃 변화의 일반적인 원인입니다."
+          hint="맞는 말이잖아!"
+          correctAnswer="참"
+          explanation=" 차수와 웹 폰트가 없는 이미지는 레이아웃 변화의 일반적인 원인입니다. 왜냐하면 브라우저가 추가적인 리소스들을 다운로드해야하기 때문이죠."
+        />
+        <ContentTitle
+          title="추가적으로 읽으면 좋을 문서"
+          id="recommended-reading"
+        />
+        <Content>
+          이 주제들에 대해서는 배울 것이 더 많습니다. 폰드와 이미지에 대해 더
+          깊게 배워보고 싶다면, 아래 문서들을 읽어보세요.
+        </Content>
+        <ContentList>
+          <li>
+            <CodeWithLink
+              link="https://nextjs.org/docs/app/building-your-application/optimizing/images"
+              isCode={false}
+            >
+              이미지 최적화 관련
+            </CodeWithLink>
+          </li>
+          <li>
+            <CodeWithLink
+              link="https://nextjs.org/docs/app/building-your-application/optimizing/fonts"
+              isCode={false}
+            >
+              폰트 최적화 관련
+            </CodeWithLink>
+          </li>
+          <li>
+            <CodeWithLink
+              link="https://developer.mozilla.org/en-US/docs/Learn/Performance/Multimedia"
+              isCode={false}
+            >
+              이미지들이 있을 때 웹 성능 개선 (MDN)
+            </CodeWithLink>
+          </li>
+          <li>
+            <CodeWithLink
+              link="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts"
+              isCode={false}
+            >
+              웹 폰트 (MDN)
+            </CodeWithLink>
+          </li>
+        </ContentList>
+        <Complete
+          completeChapter={data.chapter}
+          nextChapter={nextData.chapter}
+          nextChapterTitle={nextData.title}
+          nextChapterDescription="이제 중첩된 레이아웃과 페이지를 사용하여 대시보드 경로를 만들어 봅시다!"
+          nextChapterLink={nextData.link}
+        >
+          축하드립니다! Next.js를 활용해서 폰트와 이미지를 최적화하는 방법을
+          배웠습니다.
+        </Complete>
       </article>
     </>
   );
