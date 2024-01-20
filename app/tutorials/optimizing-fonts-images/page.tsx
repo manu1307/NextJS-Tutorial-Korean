@@ -12,7 +12,6 @@ import NavBar from "@/app/components/ui/Tutorial/nav-bar";
 import ContentQuiz from "@/app/components/ui/Tutorial/quiz";
 import { contents } from "@/app/lib/contents";
 import Image from "next/image";
-import { Code } from "react-code-blocks";
 
 function Page() {
   const data = contents[2];
