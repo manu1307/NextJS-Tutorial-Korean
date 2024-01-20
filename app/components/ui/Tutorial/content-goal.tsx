@@ -6,6 +6,10 @@ import Utils from "../../icons/goals/Utils";
 import Text from "../../icons/goals/Text";
 import Check from "../../icons/Check_black";
 import Image from "../../icons/goals/Image";
+import Route from "../../icons/goals/Route";
+import Folder from "../../icons/goals/Folder";
+import Layout from "../../icons/goals/Layout";
+import Colocation from "../../icons/goals/Colocation";
 
 export type Goal = {
   type: string;
@@ -29,6 +33,14 @@ const Icons = (type: string) => {
       return <Check />;
     case "image":
       return <Image />;
+    case "route":
+      return <Route />;
+    case "folder":
+      return <Folder />;
+    case "layout":
+      return <Layout />;
+    case "colocation":
+      return <Colocation />;
   }
 };
 function ContentGoal({ goals }: ContentGoalProps) {
