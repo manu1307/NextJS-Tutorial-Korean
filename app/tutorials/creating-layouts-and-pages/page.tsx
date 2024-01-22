@@ -4,6 +4,8 @@ import CodeWithNoLink from "@/app/components/ui/Tutorial/code-with-no-link";
 import CodeBlock from "@/app/components/ui/Tutorial/codeblock";
 import Content from "@/app/components/ui/Tutorial/content";
 import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
+import ContentList from "@/app/components/ui/Tutorial/content-list-wrapper";
+import ContentPractice from "@/app/components/ui/Tutorial/content-practice";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
 import NavBar from "@/app/components/ui/Tutorial/nav-bar";
 import { contents } from "@/app/lib/contents";
@@ -130,6 +132,72 @@ function Page() {
           <CodeWithNoLink>/app</CodeWithNoLink> 폴더 안에 <i>코로케이션</i> 되어
           있습니다.
         </Content>
+        <ContentTitle
+          title="연습 : 대시보드 폴더 내 페이지 만들기"
+          id="creating-the-dashboard-pages"
+        />
+        <Content>
+          자 이제 더 많은 경로들에 대해서 연습해봅시다. 대시보드 안에서 2개의
+          페이지를 더 만들어보세요:
+        </Content>
+        <ContentList>
+          <li>
+            <b>Customers 페이지</b> : 이 페이지는{" "}
+            <CodeWithLink
+              link="http://localhost:3000/dashboard/customers"
+              isCode={false}
+            >
+              http://localhost:3000/dashboard/customers
+            </CodeWithLink>{" "}
+            에서 접근 가능해야 합니다. 일단 페이지를 만들고{" "}
+            <CodeWithNoLink>{"<p>Customers Page</p>"}</CodeWithNoLink> 요소를
+            리턴하면 됩니다.
+          </li>
+          <li>
+            <b>Invoices 페이지</b> : 이 페이지는{" "}
+            <CodeWithLink
+              link="http://localhost:3000/dashboard/invoices"
+              isCode={false}
+            >
+              http://localhost:3000/dashboard/invoices
+            </CodeWithLink>{" "}
+            에서 접근 가능해야 합니다. 일단 페이지를 만들고{" "}
+            <CodeWithNoLink>{"<p>Invoices Page</p>"}</CodeWithNoLink> 요소를
+            리턴하면 됩니다.
+          </li>
+        </ContentList>
+        <Content>
+          시간을 들여서 해당 연습을 한 번 해보세요! 준비됐다면, 아래의 버튼을
+          눌러 솔루션을 확인해보세요:
+        </Content>
+        <ContentPractice>
+          <Content>
+            다음과 같은 폴더 구조를 가지게 될 것입니다.
+            <div className="relative w-full h-[500px] my-4 ">
+              <Image
+                src="/routing-solution.png"
+                alt="routing-solution"
+                fill={true}
+              />
+            </div>
+          </Content>
+          <Content>Customers 페이지 :</Content>
+          <CodeBlock
+            route="/app/dashboard/customers/page.tsx"
+            code={`export default function Page() {
+  return <p>Customers Page</p>;
+}`}
+            language="tsx"
+          />
+          <Content>Invoices 페이지 :</Content>
+          <CodeBlock
+            route="/app/dashboard/invoices/page.tsx"
+            code={`export default function Page() {
+  return <p>Invoices Page</p>;
+}`}
+            language="tsx"
+          />
+        </ContentPractice>
       </article>
     </>
   );
