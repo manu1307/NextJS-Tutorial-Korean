@@ -1,5 +1,7 @@
 import ArticleTop from "@/app/components/ui/Tutorial/article-top";
+import CodeWithLink from "@/app/components/ui/Tutorial/code-with-link";
 import CodeWithNoLink from "@/app/components/ui/Tutorial/code-with-no-link";
+import CodeBlock from "@/app/components/ui/Tutorial/codeblock";
 import Content from "@/app/components/ui/Tutorial/content";
 import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
@@ -80,6 +82,53 @@ function Page() {
           <CodeWithNoLink>/app/dashboard/page.tsx</CodeWithNoLink>는{" "}
           <CodeWithNoLink>/dashboard</CodeWithNoLink> 경로에 속해있는
           파일입니다. 이제 이 페이지를 만들어보러 갑시다!
+        </Content>
+        <ContentTitle
+          title="대시보드 페이지 만들기"
+          id="creating-the-dashboard-page"
+        />
+        <Content>
+          <CodeWithNoLink>/app</CodeWithNoLink> 안에{" "}
+          <CodeWithNoLink>dashboard</CodeWithNoLink> 폴더를 새로 만들어봅시다.
+          그 다음, <CodeWithNoLink>page.tsx</CodeWithNoLink> 파일을{" "}
+          <CodeWithNoLink>dashboard</CodeWithNoLink> 폴더 안에 만들고 다음
+          내용을 채워보세요.
+        </Content>
+        <CodeBlock
+          route="/app/dashboard/page.tsx"
+          code={`export default function Page() {
+  return <p>Dashboard Page</p>;
+}`}
+          language="tsx"
+        />
+        <Content>
+          개발 서버가 실행되고 있는지 확인해보고{" "}
+          <CodeWithLink link="http://localhost:3000/dashboard" isCode={false}>
+            http://localhost:3000/dashboard
+          </CodeWithLink>
+          로 이동해보세요. 그러면 "Dashboard Page" 글자를 볼 수 있을 겁니다.
+        </Content>
+        <Content>
+          이것이 Next.js에서 페이지를 추가하는 방법입니다. 폴더를 이용해서
+          새로운 루트 세그먼트를 만들어주고,{" "}
+          <CodeWithNoLink>page</CodeWithNoLink> 파일을 그 안에 만들어주면
+          됩니다.
+        </Content>
+        <Content>
+          <CodeWithNoLink>page</CodeWithNoLink> 파일이 특정한 이름을 가짐으로써
+          Next.js는 해당 경로에 UI 컴포넌트, 테스트 파일 등 관련한 코드들을{" "}
+          <CodeWithLink
+            link="https://nextjs.org/docs/app/building-your-application/routing#colocation"
+            isCode={false}
+          >
+            코로케이션
+          </CodeWithLink>
+          할 수 있도록 해줍니다. 오직 <CodeWithNoLink>page</CodeWithNoLink> 파일
+          안에 있는 컨텐츠들만 공개적으로 접근 가능합니다. 예를 들어,{" "}
+          <CodeWithNoLink>/ui</CodeWithNoLink>와{" "}
+          <CodeWithNoLink>/lib</CodeWithNoLink> 폴더들은{" "}
+          <CodeWithNoLink>/app</CodeWithNoLink> 폴더 안에 <i>코로케이션</i> 되어
+          있습니다.
         </Content>
       </article>
     </>
