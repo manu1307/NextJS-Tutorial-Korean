@@ -276,6 +276,58 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             fill={true}
           />
         </div>
+        <ContentTitle title="루트 레이아웃" id="root-layout" />
+        <Content>
+          3장에서, 우리는 <CodeWithNoLink>Inter</CodeWithNoLink> 폰트를 다른
+          레이아웃에 추가했습니다. :{" "}
+          <CodeWithNoLink>/app/layout.tsx</CodeWithNoLink>. 리마인드를 해보면 :
+        </Content>
+        <CodeBlock
+          route="/app/layout.tsx"
+          code={`import '@/app/ui/global.css';
+import { inter } from '@/app/ui/fonts';
+ 
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className={\`\${inter.className} antialiased\`\}>{children}</body>
+    </html>
+  );
+}
+        `}
+          language="tsx"
+        />
+        <Content>
+          이 레이아웃을 우리는{" "}
+          <CodeWithLink
+            link="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required"
+            isCode={false}
+          >
+            루트 레이아웃
+          </CodeWithLink>{" "}
+          이라고 부르고 이는 필수로 있어야 합니다. 루트 레이아웃에 추가하는
+          어떠한 UI는 어플리케이션 내 모든 페이지에서 공유될 것입니다. 루트
+          레이아웃은 <CodeWithNoLink>{"<html>"}</CodeWithNoLink>이나{" "}
+          <CodeWithNoLink>{"<body>"}</CodeWithNoLink> 태그를 수정할 때 사용할 수
+          있고, 또는 메타 데이터를 추가할 수도 있습니다.(
+          <CodeWithLink
+            link="https://nextjs.org/learn/dashboard-app/adding-metadata"
+            isCode={false}
+          >
+            뒤의 장
+          </CodeWithLink>
+          에서 메타 데이터에 대해서 배울 예정입니다.)
+        </Content>
+        <Content>
+          우리가 방금 막 추가한 새로운 레이아웃(
+          <CodeWithNoLink>/app/dashboard/layout.tsx</CodeWithNoLink>)는 대시보드
+          페이지들 사이에서만 존재하기 때문에, 상위 레이아웃에 다른 UI를 추가할
+          필요는 없습니다.
+        </Content>
       </article>
     </>
   );
