@@ -198,6 +198,84 @@ function Page() {
             language="tsx"
           />
         </ContentPractice>
+        <ContentTitle
+          title="대시보드 레이아웃 만들기"
+          id="creating-the-dashboard-layout"
+        />
+        <Content>
+          대시보드들은 다양한 페이지들 사이에서 공유되는 페이지들이 있습니다.
+          Next.js에서는 <CodeWithNoLink>layout.tsx</CodeWithNoLink> 라는 특별한
+          파일 이름으로 다양한 페이지들 사이에서 공유되는 UI를 만들 수 있습니다.
+          이제 대시보드 페이지를 위한 레이아웃을 만들어보죠!
+        </Content>
+        <Content>
+          <CodeWithNoLink>/dashboard</CodeWithNoLink> 폴더 안에서,{" "}
+          <CodeWithNoLink>layout.tsx</CodeWithNoLink> 파일을 만들고 아래의
+          코드를 붙여넣어보세요. :
+        </Content>
+        <CodeBlock
+          route="/app/dashboard/layout.tsx"
+          code={`import SideNav from '@/app/ui/dashboard/sidenav';
+ 
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
+      <div className="w-full flex-none md:w-64">
+        <SideNav />
+      </div>
+      <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
+    </div>
+  );
+}`}
+          language="tsx"
+        />
+        <Content>이 코드 안에서 일어나는 일들을 같이 한 번 살펴보죠.</Content>
+        <Content>
+          첫번째로, 우리는 레이아웃에{" "}
+          <CodeWithNoLink>{"<SideNav/>"}</CodeWithNoLink> 컴포넌트를 추가하고
+          있습니다. 이 파일에 추가하는 모든 컴포넌트는 레이아웃의 일부분이 될 것
+          입니다.
+        </Content>
+        <Content>
+          <CodeWithNoLink>{"<Layout/>"}</CodeWithNoLink> 컴포넌트는{" "}
+          <CodeWithNoLink>children</CodeWithNoLink> prop을 받습니다. 이 children
+          prop은 페이지가 될 수도 있고 다른 레이아웃이 될 수도 있습니다. 이
+          상황에서는 <CodeWithNoLink>/dashboard</CodeWithNoLink> 폴더 안에 있는
+          페이지들은 자동적으로 <CodeWithNoLink>{"<Layout/>"}</CodeWithNoLink>{" "}
+          안에 다음과 같이 중첩될 것입니다. :
+        </Content>
+        <div className="relative w-full h-[400px] mb-4">
+          <Image src="/shared-layout.png" alt="dashboard-route" fill={true} />
+        </div>
+        <Content>
+          입력한 값들을 모두 저장하고 localhost에서 잘 동작하는지 한 번
+          확인해보세요. 다음과 같은 화면이 나오면 됩니다. :
+        </Content>
+        <div className="relative w-full h-[560px] mb-4">
+          <Image
+            src="/shared-layout-page.png"
+            alt="dashboard-route"
+            fill={true}
+          />
+        </div>
+        <Content>
+          Next.js에서 레이아웃을 사용하면 좋은 점이 있습니다. 페이지
+          컴포넌트들이 업데이트 되어도 레이아웃은 다시 렌더링되지 않습니다. 이를{" "}
+          <CodeWithLink
+            link="https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#3-partial-rendering"
+            isCode={false}
+          >
+            부분 렌더링
+          </CodeWithLink>{" "}
+          이라고 부릅니다.
+        </Content>
+        <div className="relative w-full h-[600px] mb-4">
+          <Image
+            src="/partial-rendering-dashboard.png"
+            alt="dashboard-route"
+            fill={true}
+          />
+        </div>
       </article>
     </>
   );
