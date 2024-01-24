@@ -56,6 +56,7 @@ function ContentQuiz({
                   {answers.map((answer, i) => {
                     return (
                       <button
+                        key={i}
                         onClick={() => setIsActive(i)}
                         className={`hover:bg-white flex w-full items-center gap-3 border-b p-3 text-left text-sm transition-colors first-of-type:rounded-t-lg last-of-type:rounded-b-lg last-of-type:border-none md:p-4 md:text-base text-gray-900 ${
                           isActive === i ? "bg-white text-black" : ""

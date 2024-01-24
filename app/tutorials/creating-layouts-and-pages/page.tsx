@@ -8,6 +8,7 @@ import ContentList from "@/app/components/ui/Tutorial/content-list-wrapper";
 import ContentPractice from "@/app/components/ui/Tutorial/content-practice";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
 import NavBar from "@/app/components/ui/Tutorial/nav-bar";
+import ContentQuiz from "@/app/components/ui/Tutorial/quiz";
 import { contents } from "@/app/lib/contents";
 import Image from "next/image";
 import React from "react";
@@ -328,6 +329,18 @@ export default function RootLayout({
           페이지들 사이에서만 존재하기 때문에, 상위 레이아웃에 다른 UI를 추가할
           필요는 없습니다.
         </Content>
+        <ContentQuiz
+          answers={[
+            "전역 에러 관리자로서의 역할을 수행하기 위해",
+            "데이터를 가져오고 어플리케이션 전체에서 상태를 관리하기 위해",
+            "다양한 페이지들 사이에서 UI를 공유하기 위해",
+            "전체 어플리케이션에서 시작점으로서의 역할을 수행하기 위해",
+          ]}
+          correctAnswer="다양한 페이지들 사이에서 UI를 공유하기 위해"
+          explanation="맞습니다! 레이아웃 파일은 어플리케이션 내 모든 페이지들이 공유할 수 있는 레이아웃을 만드는 가장 좋은 방법입니다."
+          hint="layout 파일은 페이지들 사이에서 공유되는 UI를 만들기 위해 존재합니다."
+          question="Next.js에서 layout 파일의 목적은 무엇인가요?"
+        />
       </article>
     </>
   );
