@@ -2,6 +2,7 @@ import ArticleTop from "@/app/components/ui/Tutorial/article-top";
 import CodeWithLink from "@/app/components/ui/Tutorial/code-with-link";
 import CodeWithNoLink from "@/app/components/ui/Tutorial/code-with-no-link";
 import CodeBlock from "@/app/components/ui/Tutorial/codeblock";
+import Complete from "@/app/components/ui/Tutorial/complete";
 import Content from "@/app/components/ui/Tutorial/content";
 import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
 import ContentList from "@/app/components/ui/Tutorial/content-list-wrapper";
@@ -341,6 +342,15 @@ export default function RootLayout({
           hint="layout 파일은 페이지들 사이에서 공유되는 UI를 만들기 위해 존재합니다."
           question="Next.js에서 layout 파일의 목적은 무엇인가요?"
         />
+        <Complete
+          completeChapter={data.chapter}
+          nextChapter={nextData.chapter}
+          nextChapterTitle={nextData.title}
+          nextChapterDescription="<Link> 컴포넌트를 통해 대시보드 페이지 간 이동을 만들어볼 것입니다."
+          nextChapterLink={nextData.link}
+        >
+          좋습니다! 대시보드 앱이 점점 완성되어가고 있습니다.
+        </Complete>
       </article>
     </>
   );
