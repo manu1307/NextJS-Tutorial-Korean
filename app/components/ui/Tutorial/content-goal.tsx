@@ -1,4 +1,3 @@
-import { Content } from "next/font/google";
 import React from "react";
 import Docs from "../../icons/goals/Docs";
 import Write from "../../icons/goals/Write";
@@ -10,6 +9,9 @@ import Route from "../../icons/goals/Route";
 import Folder from "../../icons/goals/Folder";
 import Layout from "../../icons/goals/Layout";
 import Colocation from "../../icons/goals/Colocation";
+import Nextjs from "../../icons/goals/Nextjs";
+import Path from "../../icons/goals/Path";
+import Navigate from "../../icons/goals/Navigate";
 
 export type Goal = {
   type: string;
@@ -41,6 +43,12 @@ const Icons = (type: string) => {
       return <Layout />;
     case "colocation":
       return <Colocation />;
+    case "nextjs":
+      return <Nextjs />;
+    case "path":
+      return <Path />;
+    case "navigate":
+      return <Navigate />;
   }
 };
 function ContentGoal({ goals }: ContentGoalProps) {
