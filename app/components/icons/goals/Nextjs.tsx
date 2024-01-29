@@ -36,7 +36,7 @@ function Nextjs() {
           y2="11"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white"></stop>
+          <stop stopColor="white"></stop>
           <stop offset="0.609375" stopColor="white" stopOpacity="0.57"></stop>
           <stop offset="0.796875" stopColor="white" stopOpacity="0"></stop>
           <stop offset="1" stopColor="white" stopOpacity="0"></stop>

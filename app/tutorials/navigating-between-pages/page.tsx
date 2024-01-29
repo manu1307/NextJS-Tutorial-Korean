@@ -1,6 +1,8 @@
 import ArticleTop from "@/app/components/ui/Tutorial/article-top";
+import CodeWithNoLink from "@/app/components/ui/Tutorial/code-with-no-link";
 import Content from "@/app/components/ui/Tutorial/content";
 import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
+import ContentTitle from "@/app/components/ui/Tutorial/content-title";
 import NavBar from "@/app/components/ui/Tutorial/nav-bar";
 import { contents } from "@/app/lib/contents";
 
@@ -28,6 +30,21 @@ function Page() {
           추가해보도록 하겠습니다.
         </Content>
         <ContentGoal goals={goals} />
+        <ContentTitle
+          title="왜 내비게이션을 최적화해야하는가"
+          id="why-optimize-navigation"
+        />
+        <Content>
+          페이지들 간에 링크를 설정할 때, 전통적으로{" "}
+          <CodeWithNoLink>{"<a>"}</CodeWithNoLink> HTML 태그를 사용해왔습니다.
+          현재는 사이드바 링크들은 <CodeWithNoLink>{"<a>"}</CodeWithNoLink>{" "}
+          태그를 사용하고 있는데, home, invoices, customers 페이지를 이동하면서
+          무슨 일이 일어나는지 잘 살펴보세요.
+        </Content>
+        <Content>보셨나요?</Content>
+        <Content>
+          각 페이지를 이동할 때마다 모든 페이지가 새로고침되고 있습니다!
+        </Content>
       </article>
     </>
   );
