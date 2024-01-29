@@ -7,6 +7,7 @@ import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
 import ContentSubtitle from "@/app/components/ui/Tutorial/content-subtitle";
 import ContentTitle from "@/app/components/ui/Tutorial/content-title";
 import NavBar from "@/app/components/ui/Tutorial/nav-bar";
+import ContentQuiz from "@/app/components/ui/Tutorial/quiz";
 import { contents } from "@/app/lib/contents";
 
 import React from "react";
@@ -160,6 +161,18 @@ export default function NavLinks() {
           </CodeWithLink>
           를 더 알고 싶다면 해당 링크를 참조하세요.
         </Content>
+        <ContentQuiz
+          answers={[
+            "추가적인 CSS를 다운로드합니다.",
+            "이미지를 미리 가져옵니다.",
+            "연결된 루트의 코드를 미리 가져옵니다.",
+            "연결된 루트의 게으른 로딩을 가능하게 합니다.",
+          ]}
+          correctAnswer="연결된 루트의 코드를 미리 가져옵니다."
+          explanation="Next.js는 자동적으로 백그라운드에서 연결된 루트의 코드를 미리 가져옵니다. 유저가 링크를 클릭하자마자, 해당하는 페이지의 코드는 이미 백그라운드에서 로딩이 되었기 때문에, 페이지 변화가 매우 빠르게 일어납니다!"
+          hint="미리 가져오기!"
+          question="프로덕션 환경에서 <Link> 컴포넌트가 브라우저의 뷰포트에 보이면 Next.js는 무엇을 할까요?"
+        />
       </article>
     </>
   );

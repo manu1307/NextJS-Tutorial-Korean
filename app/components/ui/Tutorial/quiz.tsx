@@ -152,7 +152,7 @@ const ContentQuizRetry = ({
           <span>
             <Arrow_Left />
           </span>
-          Try Again
+          다시 시도하기
         </button>
       </div>
     </>
