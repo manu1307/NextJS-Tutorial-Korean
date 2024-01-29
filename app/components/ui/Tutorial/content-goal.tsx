@@ -58,8 +58,11 @@ function ContentGoal({ goals }: ContentGoalProps) {
       <p className="text-sm text-vercel-700">다뤄볼 주제들</p>
 
       <div className="bg-vercel-100 mx-auto mt-4 flex w-full max-w-[960px] flex-col rounded-md px-4 py-2 shadow-md md:mt-8">
-        {goals.map((goal) => (
-          <div className="border-vercel-300 flex gap-4 border-b py-3 px-4 last-of-type:border-0 text-vercel-800 items-center">
+        {goals.map((goal, i) => (
+          <div
+            key={i}
+            className="border-vercel-300 flex gap-4 border-b py-3 px-4 last-of-type:border-0 text-vercel-800 items-center"
+          >
             {Icons(goal.type)}
             {goal.content}
           </div>

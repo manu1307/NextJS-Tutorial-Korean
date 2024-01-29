@@ -2,8 +2,8 @@ import React from "react";
 
 function Nextjs() {
   return (
-    <svg height="16" stroke-linejoin="round" viewBox="0 0 16 16" width="16">
-      <g clip-path="url(#clip0_53_108)">
+    <svg height="16" strokeLinejoin="round" viewBox="0 0 16 16" width="16">
+      <g clipPath="url(#clip0_53_108)">
         <circle
           cx="8"
           cy="8"
@@ -18,7 +18,7 @@ function Nextjs() {
           d="M10.63 11V5"
           stroke="url(#paint0_linear_53_108)"
           strokeWidth="1.25"
-          stroke-miterlimit="1.41421"
+          strokeMiterlimit="1.41421"
         ></path>
         <path
           fillRule="evenodd"
