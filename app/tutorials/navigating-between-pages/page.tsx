@@ -2,6 +2,7 @@ import ArticleTop from "@/app/components/ui/Tutorial/article-top";
 import CodeWithLink from "@/app/components/ui/Tutorial/code-with-link";
 import CodeWithNoLink from "@/app/components/ui/Tutorial/code-with-no-link";
 import CodeBlock from "@/app/components/ui/Tutorial/codeblock";
+import Complete from "@/app/components/ui/Tutorial/complete";
 import Content from "@/app/components/ui/Tutorial/content";
 import ContentGoal, { Goal } from "@/app/components/ui/Tutorial/content-goal";
 import ContentSubtitle from "@/app/components/ui/Tutorial/content-subtitle";
@@ -294,6 +295,16 @@ export default function NavLinks() {
           코드를 저장한 후에 로컬호스트에서 확인해보세요. 활성화된 링크가
           파란색으로 하이라이트된 걸 볼 수 있을 겁니다.
         </Content>
+        <Complete
+          completeChapter={data.chapter}
+          nextChapter={nextData.chapter}
+          nextChapterTitle={nextData.title}
+          nextChapterDescription="이제 실제 데이터를 가져오기 위한 데이터베이스를 만들어보죠!"
+          nextChapterLink={nextData.link}
+        >
+          축하드립니다! 우리는 페이지 간의 이동과 Next.js에서 클라이언트 사이드
+          내비게이션을 하는 방법을 배웠습니다.
+        </Complete>
       </article>
     </>
   );
