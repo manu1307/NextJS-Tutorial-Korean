@@ -173,6 +173,127 @@ export default function NavLinks() {
           hint="미리 가져오기!"
           question="프로덕션 환경에서 <Link> 컴포넌트가 브라우저의 뷰포트에 보이면 Next.js는 무엇을 할까요?"
         />
+        <ContentSubtitle
+          title="패턴 : 동적 링크 보여주기"
+          id="pattern-showing-active-links"
+        />
+        <Content>
+          가장 보편적인 UI 패턴 중 유저가 현재 있는 페이지가 어디인지 알 수
+          있도록 동적 링크를 보여주는 것입니다. 이 패턴을 구현하기 위해서는,
+          URL로부터 현재 경로를 알아야 합니다. Next.js는 이를 위해{" "}
+          <CodeWithLink
+            link="https://nextjs.org/docs/app/api-reference/functions/use-pathname"
+            isCode={false}
+          >
+            usePathname()
+          </CodeWithLink>
+          훅을 제공합니다. 이 훅은 현재 경로와 해당 패턴을 사용할 수 있도록
+          체크할 수 있습니다.
+        </Content>
+        <Content>
+          <CodeWithLink
+            link="https://nextjs.org/docs/app/api-reference/functions/use-pathname"
+            isCode={false}
+          >
+            usePathname()
+          </CodeWithLink>
+          이 훅이기 때문에, 우리는{" "}
+          <CodeWithNoLink>nav-links.tsx</CodeWithNoLink>를 클라이언트 컴포넌트로
+          변경해야 합니다. 파일의 최상단에 리액트의{" "}
+          <CodeWithNoLink>"use client"</CodeWithNoLink>를 추가하고{" "}
+          <CodeWithNoLink>usePathname()</CodeWithNoLink>을{" "}
+          <CodeWithNoLink>next/navigation</CodeWithNoLink>으로부터 가져옵니다.
+        </Content>
+        <CodeBlock
+          route="/app/ui/dashboard/nav-links.tsx"
+          code={`'use client';
+ 
+import {
+  UserGroupIcon,
+  HomeIcon,
+  InboxIcon,
+} from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+ 
+// ...`}
+          language="tsx"
+        />
+        <Content>
+          그 다음, <CodeWithNoLink>{"<NavLinks/>"}</CodeWithNoLink> 컴포넌트에서
+          경로를 <CodeWithNoLink>pathname</CodeWithNoLink> 변수에 할당해주세요.
+        </Content>
+        <CodeBlock
+          route="/app/ui/dashboard/nav-links.tsx"
+          code={`export default function NavLinks() {
+  const pathname = usePathname();
+  // ...
+}`}
+          language="tsx"
+        />
+        <Content>
+          또한,우리는 이전에
+          <CodeWithLink link="/tutorials/css-styling" isCode={false}>
+            CSS 스타일링
+          </CodeWithLink>{" "}
+          에서 다루었던
+          <CodeWithNoLink>clsx</CodeWithNoLink> 라이브러리를 사용하여 조건부
+          클래스명을 적용할 수도 있습니다.{" "}
+          <CodeWithNoLink>link.href</CodeWithNoLink>가{" "}
+          <CodeWithNoLink>pathname</CodeWithNoLink>과 일치할 때, 링크가 파란색
+          글자와 하늘색 배경화면으로 보여지게 할 수도 있습니다.
+        </Content>
+        <Content>
+          <CodeWithNoLink>nav-links.tsx</CodeWithNoLink>의 최종 코드는 아래와
+          같습니다.
+        </Content>
+        <CodeBlock
+          route="/app/ui/dashboard/nav-links.tsx"
+          code={`'use client';
+ 
+import {
+  UserGroupIcon,
+  HomeIcon,
+  DocumentDuplicateIcon,
+} from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
+ 
+// ...
+ 
+export default function NavLinks() {
+  const pathname = usePathname();
+ 
+  return (
+    <>
+      {links.map((link) => {
+        const LinkIcon = link.icon;
+        return (
+          <Link
+            key={link.name}
+            href={link.href}
+            className={clsx(
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+              {
+                'bg-sky-100 text-blue-600': pathname === link.href,
+              },
+            )}
+          >
+            <LinkIcon className="w-6" />
+            <p className="hidden md:block">{link.name}</p>
+          </Link>
+        );
+      })}
+    </>
+  );
+}`}
+          language="tsx"
+        />
+        <Content>
+          코드를 저장한 후에 로컬호스트에서 확인해보세요. 활성화된 링크가
+          파란색으로 하이라이트된 걸 볼 수 있을 겁니다.
+        </Content>
       </article>
     </>
   );
