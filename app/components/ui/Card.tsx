@@ -18,9 +18,11 @@ function Card({ chapter, title, link }: CardProps) {
         </p>
       </div>
       <div className="p-6">
-        <button className="w-full bg-vercel-900 font-medium text-white px-4 py-2 inline-flex items-center justify-center rounded-md duration-150 hover:bg-vercel-800">
-          <Link href={link}>바로 가기</Link>
-        </button>
+        <Link href={link}>
+          <button className="w-full bg-vercel-900 font-medium text-white px-4 py-2 inline-flex items-center justify-center rounded-md duration-150 hover:bg-vercel-800">
+            바로 가기
+          </button>
+        </Link>
       </div>
     </div>
   );
